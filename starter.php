@@ -292,6 +292,8 @@ if(isset($_POST['delete'])){
             ?>
 
                   </tbody>
+                  <tr>
+                    <td colspan="4" align="right"><a href="addStud.php"><button class="btn btn-primary">Add Student</button></a></td>
 
                 </table>
               </div>
