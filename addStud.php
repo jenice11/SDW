@@ -762,16 +762,42 @@
                   </div>
    
                   <div class="form-group">
-                    <label for="exampleInputFile">Picture Upload</label>
+
+                    <!-- <label for="exampleInputFile">Picture Upload</label>
+
+                      <input type="file" name="photo" onchange="loadFile(event)" accept="image/*">
+                      <input type="hidden" name="id" value="<?php echo $id; ?>">
+                      <br><br>
+                      <img  id="output" width="300px"/>
+                      <script>
+                          var loadFile = function(event) {
+                          var output = document.getElementById('output');
+                          output.src = URL.createObjectURL(event.target.files[0]);
+                      };
+                      </script> -->
+
                     <div class="input-group">
+                      <div class="col-md-2" >
+                      <img  id="output" width="200px" height="180px" style="padding-right: 10px"/>
+                      <script>
+                          var loadFile = function(event) {
+                          var output = document.getElementById('output');
+                          output.src = URL.createObjectURL(event.target.files[0]);
+                      };
+                      </script>
+                    </div>
+                    <div class="col-md-8">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose picture</label>
+
+                        <input type="file" class="custom-file-input" id="studPhoto" onchange="loadFile(event)" accept="image/*">
+                        <label class="custom-file-label" for="studPhoto">Choose picture</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
                       </div>
                     </div>
+                  </div>
+
                   </div>
 
                   <div class="form-group">
