@@ -1,9 +1,19 @@
+<?php
+require_once 'controller/studentController.php';
+
+$student = new studentController();
+
+if(isset($_POST['add'])){
+    $student->add();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | General Form Elements</title>
+  <title>I-Hadir | Add Student</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,7 +57,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+<!--     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -56,7 +66,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -746,78 +756,95 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" action="" method="POST">
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="studName">Name: </label>
-                    <input type="text" class="form-control" id="studName" placeholder="Student's Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="studIC">IC Number: </label>
-                    <input type="number" class="form-control" id="studIC" placeholder="IC Number">
-                  </div>
-                  <div class="form-group">
-                    <label for="studPhone">Tel No: </label>
-                    <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}">
-                  </div>
-   
-                  <div class="form-group">
+                  <div class="row">
+                <!-- accepted payments column -->
+                <div class="col-6">
 
-                    <!-- <label for="exampleInputFile">Picture Upload</label>
-
-                      <input type="file" name="photo" onchange="loadFile(event)" accept="image/*">
-                      <input type="hidden" name="id" value="<?php echo $id; ?>">
-                      <br><br>
-                      <img  id="output" width="300px"/>
-                      <script>
-                          var loadFile = function(event) {
-                          var output = document.getElementById('output');
-                          output.src = URL.createObjectURL(event.target.files[0]);
-                      };
-                      </script> -->
-
-                    <div class="input-group">
-                      <div class="col-md-2" >
-                      <img  id="output" width="200px" height="180px" style="padding-right: 10px"/>
-                      <script>
-                          var loadFile = function(event) {
-                          var output = document.getElementById('output');
-                          output.src = URL.createObjectURL(event.target.files[0]);
-                      };
-                      </script>
+                  <div class="form-group">
+                      <label for="studName">Name: </label>
+                      <input type="text" class="form-control" id="studName" placeholder="Student's Name">
                     </div>
-                    <div class="col-md-8">
-                      <div class="custom-file">
-
-                        <input type="file" class="custom-file-input" id="studPhoto" onchange="loadFile(event)" accept="image/*">
-                        <label class="custom-file-label" for="studPhoto">Choose picture</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                  <div class="form-group">
+                      <label for="studIC">IC Number: </label>
+                      <input type="number" class="form-control" id="studIC" placeholder="IC Number">
                     </div>
-                  </div>
 
-                  </div>
+                    <div class="form-group">
+                      <label for="studPhone">Tel No: </label>
+                      <td><input type="text" class="form-control" name="studPhone" id="studPhone"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required></td>
+                      <!-- <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"> -->
+                    </div>
 
                   <div class="form-group">
-                  <label>Class</label>
-                  <select class="form-control select2bs4" style="width: 100%;">
-                    <option disabled selected> -- Class -- </option>
-                    <option>1 Elite</option>
-                    <option>1 Examplary</option>
-                    <option>2 Elite</option>
-                    <option>2 Examplary</option>
-                    <option>3 Elite</option>
-                    <option>3 Examplary</option>
-                  </select>
+                    <label>Class</label>
+                    <select class="form-control select2bs4" style="width: 100%;">
+                      <option disabled selected> -- Class -- </option>
+                      <option>1 Elite</option>
+                      <option>1 Examplary</option>
+                      <option>2 Elite</option>
+                      <option>2 Examplary</option>
+                      <option>3 Elite</option>
+                      <option>3 Examplary</option>
+                    </select>
+                  </div>
                 </div>
+                <!-- /.col -->
+                <div class="col-2">
+                  
+
+                      <!-- <label for="exampleInputFile">Picture Upload</label>
+
+                        <input type="file" name="photo" onchange="loadFile(event)" accept="image/*">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <br><br>
+                        <img  id="output" width="300px"/>
+                        <script>
+                            var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script> -->
+
+                      <div class="input-group">
+                        
+                        <label style="padding-left: 1em">Student's Picture</label>
+                        <img  id="output" width="200px" height="180px" style="padding-left: 1em" />
+                        <script>
+                            var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script>
+                      </div>
+                       </div>
+                      
+                      <div class="col-4">
+                        <label>&nbsp</label>
+                        <div class="custom-file">
+
+                          <input type="file" class="custom-file-input" id="studPhoto" onchange="loadFile(event)" accept="image/*">
+                          <label class="custom-file-label" for="studPhoto">Choose picture</label>
+                        </div>
+                        <!-- <div class="input-group-append">
+                          <span class="input-group-text" id="">Upload</span>
+                        </div> -->
+                      </div>
+                      
+               
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
 
                 </div>
                 <!-- /.card-body -->
                 
             </div>
             <!-- /.card -->
+
+
+
 
             <!-- Parents' Information Form -->
             <div class="card card-info">
