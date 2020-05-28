@@ -756,7 +756,7 @@ if(isset($_POST['add'])){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="" method="POST">
+              <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="row">
                 <!-- accepted payments column -->
