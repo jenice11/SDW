@@ -257,55 +257,41 @@ $data = $student->viewUser($studIC);
             foreach($data as $row){
               ?>
               <!-- Student Information -->
-              <div class="card card-info">
+              <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Student Information</h3>
+                  <h3 class="card-title">Student's Information</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
                     <div class="card-body p-0">
-                      <table class="table table-borderless" width="100%">
-                        <col style="width:10%">
-                        <col style="width:40%">
-                        <col style="width:10%">
-                        <col style="width:40%">
+                      <table class="table table-sm table-borderless" width="100%" >
+                        <col style="width:13%">
+                        <col style="width:37%">
+                        <col style="width:13%">
+                        <col style="width:37%">
                         <tbody>
                           <tr>
-                            <td><label>Name</label></td>
+                            <td><label>Name: </label></td>
                             <td><?=$row['studName']?></td>
-                            <td rowspan="4"><label>Photo</label></td>
-                            <td><img src="<?=$row['studPhoto']?>" width="200px" height="180px"></td>
+                            <td rowspan="5"><label>Photo: </label></td>
+                            <td rowspan="5"><img src="<?=$row['studPhoto']?>" width="200px" height="180px"></td>
                           </tr>
                           <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                              <div class="progress progress-xs">
-                                <div class="progress-bar bg-warning" style="width: 70%"></div>
-                              </div>
-                            </td>
-                            <td><span class="badge bg-warning">70%</span></td>
+                            <td><label>IC Number: </label></td>
+                            <td><?=$row['studIC']?></td>
                           </tr>
                           <tr>
-                            <td>3.</td>
-                            <td>Cron job running</td>
-                            <td>
-                              <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar bg-primary" style="width: 30%"></div>
-                              </div>
-                            </td>
-                            <td><span class="badge bg-primary">30%</span></td>
+                            <td><label>Tel No: </label></td>
+                            <td><?=$row['studPhone']?></td>
                           </tr>
                           <tr>
-                            <td>4.</td>
-                            <td>Fix and squish bugs</td>
-                            <td>
-                              <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar bg-success" style="width: 90%"></div>
-                              </div>
-                            </td>
-                            <td><span class="badge bg-success">90%</span></td>
+                            <td><label>Gender: </label></td>
+                            <td><?=$row['studGender']?></td>
+                          </tr>
+                          <tr>
+                            <td><label>Class: </label></td>
+                            <td><?=$row['studClass']?></td>
                           </tr>
                         </tbody>
                       </table>
@@ -313,20 +299,85 @@ $data = $student->viewUser($studIC);
                     <!-- /.card-body -->
                   </div>
                   <!-- /.card -->
+                  </div>
+                  </div>
+
+                  <!-- Parent Information -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Parent's Information</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="card-body p-0">
+                      <table class="table table-sm table-borderless " width="100%" >
+                        <col style="width:13%">
+                        <col style="width:37%">
+                        <col style="width:13%">
+                        <col style="width:37%">
+                        <tbody>
+                          <tr>
+                            <td><label>Father's Name: </label></td>
+                            <td><?=$row['pFatherName']?></td>
+                            <td><label>Mother's Name: </label></td>
+                            <td><?=$row['pMotherName']?></td>
+                          </tr>
+                          <tr>
+                            <td><label>Father's IC</label></td>
+                            <td><?=$row['pFatherIC']?></td>
+                            <td><label>Mother's IC</label></td>
+                            <td><?=$row['pMotherIC']?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+                </div>
+              </div>
+
+              <!-- Emergency Contact Information -->
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Emergency Contact Information</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="card-body p-0">
+                      <table class="table table-sm table-borderless " width="100%" >
+                        <col style="width:13%">
+                        <col style="width:37%">
+                        <col style="width:13%">
+                        <col style="width:37%">
+                        <tbody>
+                          <tr>
+                            <td><label>Name: </label></td>
+                            <td><?=$row['eName']?></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td><label>Relationship: </label></td>
+                            <td><?=$row['eRelation']?></td>
+                          </tr>
+                          <tr>
+                            <td><label>Tel No</label></td>
+                            <td><?=$row['eTel']?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+                </div>
+              </div>
+
                 <?php } ?>
 
-
-
-
-                <!-- register end button -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-success float-right" name="add" value="ADD">Add</button>
-                  <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-                </div>
-                <!-- /.card-footer -->
-
-              </div>
-            </div>
             <!-- /.row -->
           </div><!-- /.container-fluid -->
         </section>

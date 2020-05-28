@@ -777,10 +777,20 @@ if(isset($_POST['add'])){
                       <!-- <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"> -->
                     </div>
 
+                     <div class="form-group">
+                      <label for="studGender">Gender: </label>
+                      <select class="form-control select2bs4" data-minimum-results-for-search="Infinity" style="width: 100%;" name="studGender">
+                      <option disabled selected> -- Select Gender -- </option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                    </div>
+
+
                   <div class="form-group">
                     <label>Class</label>
                     <select class="form-control select2bs4" style="width: 100%;" name="studClass">
-                      <option disabled selected> -- Class -- </option>
+                      <option disabled selected> -- Select Class -- </option>
                       <option value="1 Elite">1 Elite</option>
                       <option value="1 Examplary">1 Examplary</option>
                       <option value="2 Elite">2 Elite</option>
@@ -960,6 +970,7 @@ $(document).ready(function () {
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
+
 })
 </script>
 </body>

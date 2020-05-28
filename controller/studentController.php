@@ -8,6 +8,7 @@ class studentController{
         $student->studName = $_POST['studName'];
         $student->studIC = $_POST['studIC'];
         $student->studPhone = $_POST['studPhone'];
+        $student->studGender = $_POST['studGender'];
         $student->studClass = $_POST['studClass'];
         // $student->studPhoto = $_POST['studPhoto'];
         $student->pFatherName = $_POST['pFatherName'];
