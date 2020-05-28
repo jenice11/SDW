@@ -4,7 +4,7 @@ require_once 'controller/studentController.php';
 $student = new studentController();
 
 if(isset($_POST['add'])){
-    $student->add();
+  $student->add();
 }
 
 ?>
@@ -36,27 +36,27 @@ if(isset($_POST['add'])){
       -webkit-appearance: none;
       margin: 0;
     }
-</style>
+  </style>
 
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="starter.php" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="starter.php" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
 
-    <!-- SEARCH FORM -->
+      <!-- SEARCH FORM -->
 <!--     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -169,9 +169,9 @@ if(isset($_POST['add'])){
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      alt="AdminLTE Logo"
+      class="brand-image img-circle elevation-3"
+      style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -191,8 +191,8 @@ if(isset($_POST['add'])){
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
+           with font-awesome or any other icon font library -->
+           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -748,7 +748,6 @@ if(isset($_POST['add'])){
         <div class="row">
 
           <div class="col-md-12">
-
             <!-- Student Registration Form -->
             <div class="card card-primary">
               <div class="card-header">
@@ -759,210 +758,210 @@ if(isset($_POST['add'])){
               <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="row">
-                <!-- accepted payments column -->
-                <div class="col-6">
 
-                  <div class="form-group">
-                      <label for="studName">Name: </label>
-                      <input type="text" class="form-control" name="studName" placeholder="Student's Name">
-                    </div>
-                  <div class="form-group">
-                      <label for="studIC">IC Number: </label>
-                      <input type="number" class="form-control" name="studIC" placeholder="IC Number">
-                    </div>
+                    <table class="table table-sm table-borderless" width="100%" >
+                      <col style="width:13%">
+                      <col style="width:37%">
+                      <col style="width:2%">
+                      <col style="width:5%">
+                      <col style="width:11%">
+                      <col style="width:32%">
+                      <tbody>
+                        <tr>
+                          <td><label>Name: </label></td>
+                          <td><input type="text" class="form-control" name="studName" placeholder="Student's Name"></td>
+                          <td></td>
+                          <td rowspan="5"><label>Student's Picture: </label></td>
+                          <td rowspan="5">
+                            <img  id="output" width="200px" height="180px" style="padding-left: 1em" />
+                            <script>
+                              var loadFile = function(event) {
+                                var output = document.getElementById('output');
+                                output.src = URL.createObjectURL(event.target.files[0]);
+                              };
+                            </script>
+                          </td>
+                          <td>
+                            <div class="custom-file">
 
-                    <div class="form-group">
-                      <label for="studPhone">Tel No: </label>
-                      <td><input type="text" class="form-control" name="studPhone" id="studPhone"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required></td>
-                      <!-- <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"> -->
-                    </div>
+                              <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*">
+                              <label class="custom-file-label" for="studPhoto">Choose picture</label>
+                            </div>
 
-                     <div class="form-group">
-                      <label for="studGender">Gender: </label>
-                      <select class="form-control select2bs4" data-minimum-results-for-search="Infinity" style="width: 100%;" name="studGender">
-                      <option disabled selected> -- Select Gender -- </option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
-                    </div>
+                          </td>
 
+                        </tr>
+                        <tr>
+                          <td><label>IC Number: </label></td>
+                          <td><input type="number" class="form-control" name="studIC" placeholder="IC Number"></td>
+                        </tr>
+                        <tr>
+                          <td><label>Tel No: </label></td>
+                          <td><input type="text" class="form-control" name="studPhone" id="studPhone" placeholder="Telephone Number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required></td>
+                        </tr>
+                        <!-- <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"> -->
 
-                  <div class="form-group">
-                    <label>Class</label>
-                    <select class="form-control select2bs4" style="width: 100%;" name="studClass">
-                      <option disabled selected> -- Select Class -- </option>
-                      <option value="1 Elite">1 Elite</option>
-                      <option value="1 Examplary">1 Examplary</option>
-                      <option value="2 Elite">2 Elite</option>
-                      <option value="2 Examplary">2 Examplary</option>
-                      <option value="3 Elite">3 Elite</option>
-                      <option value="3 Examplary">3 Examplary</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-2">
-                  
+                        <tr>
+                          <td><label>Gender: </label></td>
+                          <td>
+                            <select class="form-control select2bs4" data-minimum-results-for-search="Infinity" style="width: 100%;" name="studGender">
+                              <option disabled selected> -- Select Gender -- </option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+                          </td>
+                        </tr>
 
-                      <!-- <label for="exampleInputFile">Picture Upload</label>
-
-                        <input type="file" name="photo" onchange="loadFile(event)" accept="image/*">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <br><br>
-                        <img  id="output" width="300px"/>
-                        <script>
-                            var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                        };
-                        </script> -->
-
-                      <div class="input-group">
-                        
-                        <label style="padding-left: 1em">Student's Picture</label>
-                        <img  id="output" width="200px" height="180px" style="padding-left: 1em" />
-                        <script>
-                            var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                        };
-                        </script>
+                        <tr>
+                          <td><label>Class</label></td>
+                          <td>
+                            <select class="form-control select2bs4" style="width: 100%;" name="studClass">
+                              <option disabled selected> -- Select Class -- </option>
+                              <option value="1 Elite">1 Elite</option>
+                              <option value="1 Examplary">1 Examplary</option>
+                              <option value="2 Elite">2 Elite</option>
+                              <option value="2 Examplary">2 Examplary</option>
+                              <option value="3 Elite">3 Elite</option>
+                              <option value="3 Examplary">3 Examplary</option>
+                            </select>
+                          </td>
+                        </table>
+                        <!-- /.col -->
                       </div>
-                       </div>
-                      
-                      <div class="col-4">
-                        <label>&nbsp</label>
-                        <div class="custom-file">
+                      <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
 
-                          <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*">
-                          <label class="custom-file-label" for="studPhoto">Choose picture</label>
-                        </div>
-                        <!-- <div class="input-group-append">
-                          <span class="input-group-text" id="">Upload</span>
-                        </div> -->
-                      </div>
-                      
-               
-                <!-- /.col -->
+                  <!-- Parents' Information Form -->
+                  <div class="card card-info">
+                    <div class="card-header">
+                      <h3 class="card-title">Parents' Information</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <table class="table table-sm table-borderless " width="100%" >
+                        <col style="width:10.2%">
+                        <col style="width:33%">
+                        <col style="width:2%">
+                        <col style="width:10%">
+                        <col style="width:38%">
+
+                        <tr>
+                          <td><label>Father's Name: </label></td>
+                          <td><input type="text" class="form-control" name="pFatherName" placeholder="Father's Name"></td>
+
+                          <td></td>
+
+                          <td><label>Mother's Name: </label></td>
+                          <td><input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name"></td>
+                        </tr>
+
+                        <tr>
+                          <td><label>Father's IC</label></td>
+                          <td><input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC "></td>
+                          <td></td>
+                          <td><label>Mother's IC</label></td>
+                          <td><input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC "></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- /.card -->
+
+                  <!-- Emergency Contact Detail Form -->
+                  <div class="card card-secondary">
+                    <div class="card-header">
+                      <h3 class="card-title">Emergency Contact Detail</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                      <table class="table table-sm table-borderless " width="100%" >
+                        <col style="width:10.2%">
+                        <col style="width:33%">
+                        <col style="width:2%">
+                        <col style="width:10%">
+                        <col style="width:38%">
+
+                        <tr>
+                          <td><label for="eName">Name: </label></td>
+                          <td><input type="text" class="form-control" name="pFatherName" placeholder="Father's Name"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><label for="eRelation">Relationship </label></td>
+                          <td><input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><label for="eTel">Tel No: </label></td>
+                          <td><input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+
+                      </table>
+                    </div>
+                    <!-- register end button -->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-success float-right" name="add" value="ADD">Add</button>
+                      <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </form>
+
               </div>
-              <!-- /.row -->
-
-                </div>
-                <!-- /.card-body -->
-                
             </div>
-            <!-- /.card -->
-
-
-
-
-            <!-- Parents' Information Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Parents' Information</h3>
-              </div>
-              <!-- /.card-header -->
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="pFatherName">Father's Name: </label>
-                    <input type="text" class="form-control" name="pFatherName" placeholder="Father's Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="pFatherIC">Father' IC: </label>
-                    <input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC ">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="pMotherName">Mother's Name: </label>
-                    <input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="pMotherIC">Mother' IC: </label>
-                    <input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC ">
-                  </div>
-                </div>
-            </div>
-            <!-- /.card -->
-
-            <!-- Emergency Contact Detail Form -->
-            <div class="card card-secondary">
-              <div class="card-header">
-                <h3 class="card-title">Emergency Contact Detail</h3>
-              </div>
-              <!-- /.card-header -->
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="eName">Name: </label>
-                    <input type="text" class="form-control" name="eName" placeholder="Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="eRelation">Relationship </label>
-                    <input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="eTel">Tel No: </label>
-                    <input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}">
-                  </div>
- 
-                </div>
-            </div>
-            <!-- /.card -->
-
-
-
-
-            <!-- register end button -->
-            <div class="card-footer">
-                  <button type="submit" class="btn btn-success float-right" name="add" value="ADD">Add</button>
-                  <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-             </div>
-                <!-- /.card-footer -->
-            </form>
-
-          </div>
+            <!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+          <b>Version</b> 3.0.5
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+        reserved.
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
+    <!-- ./wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Select2 -->
-<script src="plugins/select2/js/select2.full.min.js"></script>
-<!-- Bootstrap4 Duallistbox -->
-<script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-<!-- bs-custom-file-input -->
-<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
-  $(function () {
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        bsCustomFileInput.init();
+      });
+      $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
 
@@ -971,7 +970,7 @@ $(document).ready(function () {
       theme: 'bootstrap4'
     })
 
-})
+  })
 </script>
 </body>
 </html>
