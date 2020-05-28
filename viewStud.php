@@ -1,15 +1,12 @@
 <?php
 require_once 'controller/studentController.php';
 
+$studIC = base64_decode($_GET['studIC']);
+
 $student = new studentController();
-$data = $student->viewAll();
-
-if(isset($_POST['delete'])){
-    $student->delete();
-}
-
-
+$data = $student->viewUser($studIC); 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +14,7 @@ if(isset($_POST['delete'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>I-Hadir || Homepage</title>
+  <title>I-Hadir || View Student</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -250,62 +247,179 @@ if(isset($_POST['delete'])){
     </div>
     <!-- /.content-header -->
 
-     <!-- Main content -->
+    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+
+          <div class="col-md-12">
+
+            <!-- Student Information -->
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Student List</h3>
+                <h3 class="card-title">Register Information</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Class</th>
-                    <th>Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
+              <!-- form start -->
+              
+                <div class="card-body">
+                  <div class="row">
+                <!-- accepted payments column -->
+                <div class="col-6">
 
-                  <?php
-                  $i = 1;
+                  <div class="form-group">
+                      <label for="studName">Name: </label>
+                      <input type="text" class="form-control" name="studName" placeholder="Student's Name">
+                    </div>
+                  <div class="form-group">
+                      <label for="studIC">IC Number: </label>
+                      <input type="number" class="form-control" name="studIC" placeholder="IC Number">
+                    </div>
 
-                  foreach($data as $row){
-                    echo "<tr>"
-                    . "<td>".$i."</td>"
-                    . "<td>".$row['studName']."</td>"
-                    . "<td>".$row['studClass']."</td>";
+                    <div class="form-group">
+                      <label for="studPhone">Tel No: </label>
+                      <td><input type="text" class="form-control" name="studPhone" id="studPhone"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required></td>
+                      <!-- <input type="tel" class="form-control" id="studPhone" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"> -->
+                    </div>
 
-                  ?>
+                  <div class="form-group">
+                    <label>Class</label>
+                    <select class="form-control select2bs4" style="width: 100%;" name="studClass">
+                      <option disabled selected> -- Class -- </option>
+                      <option value="1 Elite">1 Elite</option>
+                      <option value="1 Examplary">1 Examplary</option>
+                      <option value="2 Elite">2 Elite</option>
+                      <option value="2 Examplary">2 Examplary</option>
+                      <option value="3 Elite">3 Elite</option>
+                      <option value="3 Examplary">3 Examplary</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-2">
+                  
 
-                  <td><form action="" method="POST">
-                    <?php $ic = base64_encode($row['studIC']); ?>
-                    <input type="button" onclick="location.href='viewStud.php?studIC=<?=$ic?>'" value="VIEW">&nbsp;
-                    <input type="hidden" name="studID" value="<?=$row['studClass']?>"><input type="submit" name="delete" value="DELETE">
-                </form></td>
-              <?php
-              $i++;
-             echo "</tr>";
-            }
-            ?>
+                      <!-- <label for="exampleInputFile">Picture Upload</label>
 
-                  </tbody>
-                  <tr>
-                    <td colspan="4" align="right"><a href="addStud.php"><button class="btn btn-primary">Add Student</button></a></td>
+                        <input type="file" name="photo" onchange="loadFile(event)" accept="image/*">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <br><br>
+                        <img  id="output" width="300px"/>
+                        <script>
+                            var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script> -->
 
-                </table>
+                      <div class="input-group">
+                        
+                        <label style="padding-left: 1em">Student's Picture</label>
+                        <img  id="output" width="200px" height="180px" style="padding-left: 1em" />
+                        <script>
+                            var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script>
+                      </div>
+                       </div>
+                      
+                      <div class="col-4">
+                        <label>&nbsp</label>
+                        <div class="custom-file">
+
+                          <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*">
+                          <label class="custom-file-label" for="studPhoto">Choose picture</label>
+                        </div>
+                        <!-- <div class="input-group-append">
+                          <span class="input-group-text" id="">Upload</span>
+                        </div> -->
+                      </div>
+                      
+               
+                <!-- /.col -->
               </div>
-              <!-- /.card-body -->
+              <!-- /.row -->
+
+                </div>
+                <!-- /.card-body -->
+                
             </div>
             <!-- /.card -->
+
+            <!-- Parents' Information Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Parents' Information</h3>
+              </div>
+              <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="pFatherName">Father's Name: </label>
+                    <input type="text" class="form-control" name="pFatherName" placeholder="Father's Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="pFatherIC">Father' IC: </label>
+                    <input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC ">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="pMotherName">Mother's Name: </label>
+                    <input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="pMotherIC">Mother' IC: </label>
+                    <input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC ">
+                  </div>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <!-- Emergency Contact Detail Form -->
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Emergency Contact Detail</h3>
+              </div>
+              <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="eName">Name: </label>
+                    <input type="text" class="form-control" name="eName" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="eRelation">Relationship </label>
+                    <input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="eTel">Tel No: </label>
+                    <input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}">
+                  </div>
+ 
+                </div>
+            </div>
+            <!-- /.card -->
+
+
+
+
+            <!-- register end button -->
+            <div class="card-footer">
+                  <button type="submit" class="btn btn-success float-right" name="add" value="ADD">Add</button>
+                  <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+             </div>
+                <!-- /.card-footer -->
+
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

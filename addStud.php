@@ -764,11 +764,11 @@ if(isset($_POST['add'])){
 
                   <div class="form-group">
                       <label for="studName">Name: </label>
-                      <input type="text" class="form-control" id="studName" placeholder="Student's Name">
+                      <input type="text" class="form-control" name="studName" placeholder="Student's Name">
                     </div>
                   <div class="form-group">
                       <label for="studIC">IC Number: </label>
-                      <input type="number" class="form-control" id="studIC" placeholder="IC Number">
+                      <input type="number" class="form-control" name="studIC" placeholder="IC Number">
                     </div>
 
                     <div class="form-group">
@@ -779,14 +779,14 @@ if(isset($_POST['add'])){
 
                   <div class="form-group">
                     <label>Class</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
+                    <select class="form-control select2bs4" style="width: 100%;" name="studClass">
                       <option disabled selected> -- Class -- </option>
-                      <option>1 Elite</option>
-                      <option>1 Examplary</option>
-                      <option>2 Elite</option>
-                      <option>2 Examplary</option>
-                      <option>3 Elite</option>
-                      <option>3 Examplary</option>
+                      <option value="1 Elite">1 Elite</option>
+                      <option value="1 Examplary">1 Examplary</option>
+                      <option value="2 Elite">2 Elite</option>
+                      <option value="2 Examplary">2 Examplary</option>
+                      <option value="3 Elite">3 Elite</option>
+                      <option value="3 Examplary">3 Examplary</option>
                     </select>
                   </div>
                 </div>
@@ -824,7 +824,7 @@ if(isset($_POST['add'])){
                         <label>&nbsp</label>
                         <div class="custom-file">
 
-                          <input type="file" class="custom-file-input" id="studPhoto" onchange="loadFile(event)" accept="image/*">
+                          <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*">
                           <label class="custom-file-label" for="studPhoto">Choose picture</label>
                         </div>
                         <!-- <div class="input-group-append">
@@ -855,20 +855,20 @@ if(isset($_POST['add'])){
                 <div class="card-body">
                   <div class="form-group">
                     <label for="pFatherName">Father's Name: </label>
-                    <input type="text" class="form-control" id="pFatherName" placeholder="Father's Name">
+                    <input type="text" class="form-control" name="pFatherName" placeholder="Father's Name">
                   </div>
                   <div class="form-group">
                     <label for="pFatherIC">Father' IC: </label>
-                    <input type="number" class="form-control" id="pFatherIC" placeholder="Father's IC ">
+                    <input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC ">
                   </div>
 
                   <div class="form-group">
                     <label for="pMotherName">Mother's Name: </label>
-                    <input type="text" class="form-control" id="pMotherName" placeholder="Mother's Name">
+                    <input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name">
                   </div>
                   <div class="form-group">
                     <label for="pMotherIC">Mother' IC: </label>
-                    <input type="number" class="form-control" id="pMotherIC" placeholder="Mother's IC ">
+                    <input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC ">
                   </div>
                 </div>
             </div>
@@ -883,16 +883,16 @@ if(isset($_POST['add'])){
                 <div class="card-body">
                   <div class="form-group">
                     <label for="eName">Name: </label>
-                    <input type="text" class="form-control" id="eName" placeholder="Name">
+                    <input type="text" class="form-control" name="eName" placeholder="Name">
                   </div>
                   <div class="form-group">
                     <label for="eRelation">Relationship </label>
-                    <input type="text" class="form-control" id="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend">
+                    <input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend">
                   </div>
 
                   <div class="form-group">
                     <label for="eTel">Tel No: </label>
-                    <input type="tel" class="form-control" id="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}">
+                    <input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}">
                   </div>
  
                 </div>
@@ -904,7 +904,7 @@ if(isset($_POST['add'])){
 
             <!-- register end button -->
             <div class="card-footer">
-                  <button type="submit" class="btn btn-success float-right">Register</button>
+                  <button type="submit" class="btn btn-success float-right" name="add" value="ADD">Add</button>
                   <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
              </div>
                 <!-- /.card-footer -->
