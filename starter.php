@@ -8,6 +8,7 @@ if(isset($_POST['delete'])){
     $student->delete();
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +17,21 @@ if(isset($_POST['delete'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+  <title>I-Hadir || Homepage</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- jsGrid -->
+  <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
+  <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -184,7 +196,7 @@ if(isset($_POST['delete'])){
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Student List
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -226,12 +238,11 @@ if(isset($_POST['delete'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+ 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item active"><a href="#">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -239,62 +250,107 @@ if(isset($_POST['delete'])){
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
+     <!-- Main content -->
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- /.col-md-6 -->
-          <div class="col-lg-12">
+          <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="m-0">Featured</h5>
+                <h3 class="card-title">Student List</h3>
               </div>
+              <!-- /.card-header -->
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
 
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <?php
+                  $i = 1;
+
+                  foreach($data as $row){
+                    echo "<tr>"
+                    . "<td>".$i."</td>"
+                    . "<td>".$row['studName']."</td>"
+                    . "<td>".$row['studClass']."</td>";
+
+                  ?>
+
+                  <td><form action="" method="POST">
+                    <?php $ic = base64_encode($row['studIC']); ?>
+                    <input type="button" onclick="location.href='viewStud.php?studIC=<?=$ic?>'" value="VIEW">&nbsp;
+                    <input type="hidden" name="studID" value="<?=$row['studClass']?>"><input type="submit" name="delete" value="DELETE">
+                </form></td>
+              <?php
+              $i++;
+             echo "</tr>";
+            }
+            ?>
+
+                  </tbody>
+                  <tr>
+                    <td colspan="4" align="right"><a href="addStud.php"><button class="btn btn-primary">Add Student</button></a></td>
+
+                </table>
               </div>
+              <!-- /.card-body -->
             </div>
-          </div>
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+            <!-- /.card -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.5
+    </div>
+    <strong>Copyright &copy; 2020 I-Hadir</a>.</strong> All rights
+    reserved.
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jsGrid -->
+<script src="plugins/jsgrid/demos/db.js"></script>
+<script src="plugins/jsgrid/jsgrid.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>

@@ -2,13 +2,15 @@
 require_once 'libs/database.php';
 
 class studentModel{
-    public $name,$studid,$phone,$residence;
+    public $studName,$studIC,$studPhone, $studGender,$studClass,$studPhoto,$pFatherName,$pFatherIC,$pMotherName,$pMotherIC,$eName,$eRelation,$eTel;
     
     function addStud(){
-        $sql = "insert into student(studname, studidd, phone, residence) values(:name, :studid, :phone, :residence)";
-        $args = [':name'=>$this->name, ':studid'=>$this->studid, ':phone'=>$this->phone, ':residence'=>$this->residence];
+        $sql = "insert into student(studName, studIC, studPhone, studGender, studClass, studPhoto, pFatherName, pFatherIC, pMotherName, pMotherIC, eName, eRelation, eTel) values(:studName, :studIC, :studPhone, :studClass, :studPhoto, :pFatherName, :pFatherIC, :pMotherName, :pMotherIC, :eName, :eRelation, :eTel)";
+
+        $args = [':studName'=>$this->studName, ':studIC'=>$this->studIC, ':studGender'=>$this->studGender, ':studPhone'=>$this->studPhone, ':studPhoto'=>$this->studPhoto,':studClass'=>$this->studClass, ':pFatherName'=>$this->pFatherName, ':pFatherIC'=>$this->pFatherIC, ':pMotherName'=>$this->pMotherName, ':pMotherIC'=>$this->pMotherIC, ':eName'=>$this->eName, ':eRelation'=>$this->eRelation, ':eTel'=>$this->eTel];
         $stmt = DB::run($sql, $args);
         $count = $stmt->rowCount();
+        
         return $count;
     }
     
@@ -18,20 +20,20 @@ class studentModel{
     }
     
     function viewStud(){
-        $sql = "select * from student where studidd=:studidd";
-        $args = [':studidd'=>$this->studid];
+        $sql = "select * from student where studIC=:studIC";
+        $args = [':studIC'=>$this->studIC];
         return DB::run($sql,$args);
     }
     
     function modifyStud(){
-        $sql = "update student set phone=:phone,residence=:residence where studidd=:studid";
-        $args = [':studid'=>$this->studid, ':phone'=>$this->phone, ':residence'=>$this->residence];
+        $sql = "update student set studPhone=:studPhone,studClass=:studClass where studIC=:studIC";
+        $args = [':studIC'=>$this->studIC, ':studPhone'=>$this->studPhone, ':studClass'=>$this->studClass];
         return DB::run($sql,$args);
     }
     
     function deleteStud(){
-        $sql = "delete from student where studidd=:studid";
-        $args = [':studid'=>$this->studid];
+        $sql = "delete from student where studIC=:studIC";
+        $args = [':studIC'=>$this->studIC];
         return DB::run($sql,$args);
     }
 }
