@@ -36,7 +36,9 @@ if(isset($_POST['delete'])){
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+<!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 
 
@@ -250,53 +252,58 @@ if(isset($_POST['delete'])){
     </div>
     <!-- /.content-header -->
 
+  
      <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
+               <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Student List</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example1" class="table table-bordered  table-hover">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Class</th>
-                    <th>Action</th>
+                    <th style="width: 1%">#</th>
+                    <th style="width: 50%">Name</th>
+                    <th style="width: 20%">Class</th>
+                    <th style="width: 20%" class="text-center">Action</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php
-                  $i = 1;
+                    <?php
+                    $i = 1;
+                    foreach($data as $row){
+                      echo "<tr>"
+                      . "<td>".$i."</td>"
+                      . "<td>".$row['studName']."</td>"
+                      . "<td>".$row['studClass']."</td>";
 
-                  foreach($data as $row){
-                    echo "<tr>"
-                    . "<td>".$i."</td>"
-                    . "<td>".$row['studName']."</td>"
-                    . "<td>".$row['studClass']."</td>";
+                      $ic = base64_encode($row['studIC']);
+                    ?>
 
-                  ?>
+                    
+                      <td class="project-actions text-center">
+                          <form action="" method="POST">
+                            <button class="btn btn-primary btn-sm" onclick="location.href='viewStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-folder"></i> &nbsp;View</button>
 
-                  <td><form action="" method="POST">
-                    <?php $ic = base64_encode($row['studIC']); ?>
-                    <input type="button" onclick="location.href='viewStud.php?studIC=<?=$ic?>'" value="VIEW">&nbsp;
-                    <input type="hidden" name="studID" value="<?=$row['studClass']?>"><input type="submit" name="delete" value="DELETE">
-                </form></td>
-              <?php
-              $i++;
-             echo "</tr>";
-            }
-            ?>
+                            <button class="btn btn-info btn-sm" onclick="location.href='editStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
 
+                            <button class="btn btn-danger btn-sm" onclick="location.href='editStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-trash"></i> &nbsp;Delete</button>
+                          </form>
+                      </td>
+                    
+                   
+                    <?php 
+                    echo "</tr>";
+                    $i++;
+                  }?>
+     
                   </tbody>
-                  <tr>
-                    <td colspan="4" align="right"><a href="addStud.php"><button class="btn btn-primary">Add Student</button></a></td>
 
                 </table>
               </div>
@@ -324,22 +331,25 @@ if(isset($_POST['delete'])){
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jsGrid -->
-<script src="plugins/jsgrid/demos/db.js"></script>
-<script src="plugins/jsgrid/jsgrid.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="../dist/js/demo.js"></script>
 <!-- page script -->
 <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
+
     });
     $('#example2').DataTable({
       "paging": true,
