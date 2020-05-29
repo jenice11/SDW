@@ -1,13 +1,13 @@
 <?php
-require_once 'libs/database.php';
+require_once '../libs/database.php';
 
 class studentModel{
     public $studName,$studIC,$studPhone, $studGender,$studClass,$studPhoto,$pFatherName,$pFatherIC,$pMotherName,$pMotherIC,$eName,$eRelation,$eTel;
     
     function addStud(){
-        $sql = "insert into student(studName, studIC, studPhone, studGender, studClass, studPhoto, pFatherName, pFatherIC, pMotherName, pMotherIC, eName, eRelation, eTel) values(:studName, :studIC, :studPhone, :studClass, :studPhoto, :pFatherName, :pFatherIC, :pMotherName, :pMotherIC, :eName, :eRelation, :eTel)";
+        $sql = "insert into student(studName, studIC, studPhone, studGender, studClass, studPhoto, pFatherName, pFatherIC, pMotherName, pMotherIC, eName, eRelation, eTel) values(:studName, :studIC, :studPhone,  :studGender,:studClass, :studPhoto, :pFatherName, :pFatherIC, :pMotherName, :pMotherIC, :eName, :eRelation, :eTel)";
 
-        $args = [':studName'=>$this->studName, ':studIC'=>$this->studIC, ':studGender'=>$this->studGender, ':studPhone'=>$this->studPhone, ':studPhoto'=>$this->studPhoto,':studClass'=>$this->studClass, ':pFatherName'=>$this->pFatherName, ':pFatherIC'=>$this->pFatherIC, ':pMotherName'=>$this->pMotherName, ':pMotherIC'=>$this->pMotherIC, ':eName'=>$this->eName, ':eRelation'=>$this->eRelation, ':eTel'=>$this->eTel];
+        $args = [':studName'=>$this->studName, ':studIC'=>$this->studIC,  ':studPhone'=>$this->studPhone, ':studGender'=>$this->studGender,':studPhoto'=>$this->studPhoto,':studClass'=>$this->studClass, ':pFatherName'=>$this->pFatherName, ':pFatherIC'=>$this->pFatherIC, ':pMotherName'=>$this->pMotherName, ':pMotherIC'=>$this->pMotherIC, ':eName'=>$this->eName, ':eRelation'=>$this->eRelation, ':eTel'=>$this->eTel];
         $stmt = DB::run($sql, $args);
         $count = $stmt->rowCount();
         

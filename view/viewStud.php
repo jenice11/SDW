@@ -1,5 +1,5 @@
 <?php
-require_once 'controller/studentController.php';
+require_once '../controller/studentController.php';
 
 $studIC = base64_decode($_GET['studIC']);
 
@@ -17,20 +17,20 @@ $data = $student->viewUser($studIC);
   <title>I-Hadir || View Student</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- jsGrid -->
-  <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="../../../plugins/jsgrid/jsgrid.min.css">
+  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -275,7 +275,7 @@ $data = $student->viewUser($studIC);
                             <td><label>Name: </label></td>
                             <td><?=$row['studName']?></td>
                             <td rowspan="5"><label>Photo: </label></td>
-                            <td rowspan="5"><img src="<?=$row['studPhoto']?>" width="200px" height="180px"></td>
+                            <td rowspan="5"><img src="data:image/jpg;base64,<?php echo base64_encode(file_get_contents($row['studPhoto']))?>" width="200px" height="180px"></td>
                           </tr>
                           <tr>
                             <td><label>IC Number: </label></td>

@@ -1,5 +1,5 @@
 <?php
-require_once 'model/studentModel.php';
+require_once '../model/studentModel.php';
 
 class studentController{
 
@@ -27,7 +27,7 @@ class studentController{
         else{
           $newFilename=$fileinfo['filename'] . "." . $fileinfo['extension'];
           move_uploaded_file($_FILES["studPhoto"]["tmp_name"],"images/studentPicture/" . $newFilename);
-          $student->studPhoto="images/studentPicture/" . $newFilename;
+          $student->studPhoto="../images/studentPicture/" . $newFilename;
         }
 
 
