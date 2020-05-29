@@ -944,19 +944,19 @@ if(isset($_POST['add'])){
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
-    <script src="plugins/select2/js/select2.full.min.js"></script>
+    <script src="../plugins/select2/js/select2.full.min.js"></script>
     <!-- Bootstrap4 Duallistbox -->
-    <script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- bs-custom-file-input -->
-    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
+    <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
+    <script src="../dist/js/demo.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
         bsCustomFileInput.init();
