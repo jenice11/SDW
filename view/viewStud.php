@@ -371,8 +371,16 @@ $data = $student->viewUser($studIC);
                       </table>
                     </div>
                     <!-- /.card-body -->
+                    
                   </div>
                   <!-- /.card -->
+                </div>
+                <!-- footer button -->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-success float-right" onclick="location.href='editStud.php?studIC=<?=$_GET['studIC']?>'" type="button">Edit</button>
+                      <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                    </div>
+                    <!-- /.card-footer -->
                 </div>
               </div>
 
