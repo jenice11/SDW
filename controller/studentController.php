@@ -31,9 +31,14 @@ class studentController{
 
 
         if($student->addStud() > 0){
-        $message = "Success Insert!";
-        echo "<script type='text/javascript'>alert('$message');
-        window.location = 'starter.php';</script>";
+            $message = "Success Insert!";
+            echo "<script type='text/javascript'>alert('$message');
+            window.location = 'index.php';</script>";
+        }
+        else if($student->addStud() == -999){
+            $message = "Duplicate IC!";
+            echo "<script type='text/javascript'>alert('$message');
+            </script>";
         }
     }
     
