@@ -293,7 +293,8 @@ if(isset($_POST['delete'])){
 
                             <button class="btn btn-info btn-sm" onclick="location.href='editStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
 
-                            <button class="btn btn-danger btn-sm" onclick="location.href='editStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-trash"></i> &nbsp;Delete</button>
+                            <input type="hidden" name="studIC" value="<?=$row['studIC']?>">
+                            <button class="btn btn-danger btn-sm" value="DELETE" name="delete" type="submit"><i class="fas fa-trash"></i> &nbsp;Delete</button>
                           </form>
                       </td>
                     
