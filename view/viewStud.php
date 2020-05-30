@@ -49,7 +49,7 @@ $data = $student->viewUser($studIC);
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
@@ -239,7 +239,7 @@ $data = $student->viewUser($studIC);
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="index.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

@@ -25,7 +25,7 @@ class studentController{
         }
         else{
           $newFilename=$fileinfo['filename'] . "." . $fileinfo['extension'];
-          move_uploaded_file($_FILES["studPhoto"]["tmp_name"],"images/studentPicture/" . $newFilename);
+          move_uploaded_file($_FILES["studPhoto"]["tmp_name"],"../images/studentPicture/" . $newFilename);
           $student->studPhoto="../images/studentPicture/" . $newFilename;
         }
 
@@ -58,15 +58,14 @@ class studentController{
         $student->eTel = $_POST['eTel'];
         $ic = base64_encode($_POST['studIC']);
         
-
         $fileinfo=PATHINFO($_FILES['studPhoto']['name']);
 
         if(empty($fileinfo['filename'])){
-            $student->studPhoto="";
+           $student->studPhoto= $_POST['studPhoto2'];
         }
         else{
           $newFilename=$fileinfo['filename'] . "." . $fileinfo['extension'];
-          move_uploaded_file($_FILES["studPhoto"]["tmp_name"],"images/studentPicture/" . $newFilename);
+          move_uploaded_file($_FILES["studPhoto"]["tmp_name"],"../images/studentPicture/" . $newFilename);
           $student->studPhoto="../images/studentPicture/" . $newFilename;
         }
 

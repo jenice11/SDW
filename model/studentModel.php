@@ -29,6 +29,7 @@ class studentModel{
         $sql = "update student set studPhone=:studPhone, studClass=:studClass, studPhoto=:studPhoto, eName=:eName, eRelation=:eRelation, eTel=:eTel where studIC=:studIC";
 
         $args = [':studIC'=>$this->studIC, ':studPhone'=>$this->studPhone, ':studClass'=>$this->studClass, ':studPhoto'=>$this->studPhoto, ':eName'=>$this->eName, ':eRelation'=>$this->eRelation, ':eTel'=>$this->eTel];
+        
         return DB::run($sql,$args);
     }
     

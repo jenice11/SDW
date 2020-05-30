@@ -275,12 +275,12 @@ if(isset($_POST['update'])){
                   <div class="row">
 
                     <table class="table table-sm table-borderless" width="100%" >
-                      <col style="width:13%">
-                      <col style="width:37%">
+                      <col style="width:10%">
+                      <col style="width:29%">
                       <col style="width:2%">
                       <col style="width:5%">
-                      <col style="width:11%">
-                      <col style="width:32%">
+                      <col style="width:15%">
+                      <col style="width:20%">
                       <tbody>
                         <?php
                         foreach($data as $row){
@@ -298,12 +298,15 @@ if(isset($_POST['update'])){
                                 output.src = URL.createObjectURL(event.target.files[0]);
                               };
                             </script>
+
                           </td>
                           <td>
                             <div class="custom-file">
 
-                              <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*" value="<?=$row['studPhoto']?>">
+                              <input type="file" class="custom-file-input" name="studPhoto" onchange="loadFile(event)" accept="image/*">
                               <label class="custom-file-label" for="studPhoto" >Choose picture</label>
+                              <input type="hidden" name="studPhoto2" value="<?=$row['studPhoto']?>">
+
                             </div>
 
                           </td>
