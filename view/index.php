@@ -173,13 +173,14 @@ if(isset($_POST['delete'])){
 
                     
                       <td class="project-actions text-center">
-                          <form action="" method="POST">
+                          <form action="" method="POST" onsubmit="return confirm('Are you sure to delete?');">
                             <button class="btn btn-primary btn-sm" onclick="location.href='viewStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-folder"></i> &nbsp;View</button>
 
                             <button class="btn btn-info btn-sm" onclick="location.href='editStud.php?studIC=<?=$ic?>'" type="button"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
 
                             <input type="hidden" name="studIC" value="<?=$row['studIC']?>">
-                            <button class="btn btn-danger btn-sm" value="DELETE" name="delete" type="submit" onclick="confirmFunction()"><i class="fas fa-trash"></i> &nbsp;Delete</button>
+                            
+                            <button class="btn btn-danger btn-sm" value="DELETE" name="delete" type="submit"><i class="fas fa-trash"></i> &nbsp;Delete</button>
                           </form>
                       </td>
                     
@@ -251,9 +252,15 @@ if(isset($_POST['delete'])){
     });
   });
 
-function confirmFunction() {
-  confirm("Are you sure to delete this student?");
-}
+// document.getElementById('delete').onclick = confirmFunction() {
+//   var r = confirm("Are you sure to delete this student?");
+//   if (r == true) {
+    
+//   } else {
+    
+//   }
+// }
+
 </script>
 </body>
 </html>
