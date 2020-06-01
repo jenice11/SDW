@@ -49,6 +49,7 @@ class studentModel{
     }
     
     function deleteStud(){
+        exit();
         $sql = "delete from student where studIC=:studIC";
         $args = [':studIC'=>$this->studIC];
         return DB::run($sql,$args);
