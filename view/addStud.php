@@ -158,7 +158,7 @@ if(isset($_POST['add'])){
                       <tbody>
                         <tr>
                           <td><label>Name: </label></td>
-                          <td><input type="text" class="form-control" name="studName" placeholder="Student's Name"></td>
+                          <td><input type="text" class="form-control" name="studName" placeholder="Student's Name" required></td>
                           <td></td>
                           <td rowspan="5"><label>Student's Picture: </label></td>
                           <td rowspan="5">
@@ -182,7 +182,7 @@ if(isset($_POST['add'])){
                         </tr>
                         <tr>
                           <td><label>IC Number: </label></td>
-                          <td><input type="number" class="form-control" name="studIC" placeholder="IC Number"></td>
+                          <td><input type="number" class="form-control" name="studIC" placeholder="IC Number" required></td>
                         </tr>
                         <tr>
                           <td><label>Tel No: </label></td>
@@ -239,20 +239,20 @@ if(isset($_POST['add'])){
 
                         <tr>
                           <td><label>Father's Name: </label></td>
-                          <td><input type="text" class="form-control" name="pFatherName" placeholder="Father's Name"></td>
+                          <td><input type="text" class="form-control" name="pFatherName" placeholder="Father's Name" required></td>
 
                           <td></td>
 
                           <td><label>Mother's Name: </label></td>
-                          <td><input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name"></td>
+                          <td><input type="text" class="form-control" name="pMotherName" placeholder="Mother's Name" required></td>
                         </tr>
 
                         <tr>
                           <td><label>Father's IC</label></td>
-                          <td><input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC "></td>
+                          <td><input type="number" class="form-control" name="pFatherIC" placeholder="Father's IC " required></td>
                           <td></td>
                           <td><label>Mother's IC</label></td>
-                          <td><input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC "></td>
+                          <td><input type="number" class="form-control" name="pMotherIC" placeholder="Mother's IC " required></td>
                         </tr>
                       </table>
                     </div>
@@ -276,21 +276,21 @@ if(isset($_POST['add'])){
 
                         <tr>
                           <td><label for="eName">Name: </label></td>
-                          <td><input type="text" class="form-control" name="eName" placeholder="Emergency's Contact Name"></td>
+                          <td><input type="text" class="form-control" name="eName" placeholder="Emergency's Contact Name" required></td>
                           <td></td>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
                           <td><label for="eRelation">Relationship </label></td>
-                          <td><input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend"></td>
+                          <td><input type="text" class="form-control" name="eRelation" placeholder="Eg: Father/Mother/Aunt/Friend" required></td>
                           <td></td>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
                           <td><label for="eTel">Tel No: </label></td>
-                          <td><input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}"></td>
+                          <td><input type="tel" class="form-control" name="eTel" placeholder="Eg: 0123456789" pattern="[0-9]{10,14}" required></td>
                           <td></td>
                           <td></td>
                           <td></td>
